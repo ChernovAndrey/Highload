@@ -20,7 +20,7 @@ ADD src/    $WORK/HighloadMaven/src/
 
 RUN mkdir -p /var/www/html
 
-WORKDIR $WORK
+WORKDIR $WORK/HighloadMaven
 RUN mvn package
 
 EXPOSE 80
