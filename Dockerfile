@@ -15,12 +15,14 @@ RUN apt-get install -y maven
 #
 
 ENV WORK /opt
-ADD . $WORK/java/
+ADD pom.xml $WORK/HighloadMaven/pom.xml
+ADD src/    $WORK/HighloadMaven/src/
+
 RUN mkdir -p /var/www/html
 
-WORKDIR $WORK/java
+WORKDIR $WORK
 RUN mvn package
 
 EXPOSE 80
 
-CMD java -jar /home/andrey/IdeaProjects/HighloadMaven/target/Highload-1.0-SNAPSHOT.jar
+CMD java -Xmx300M -Xms300M -jar $WORK/HighloadMaven/target/spring-postgresql-1.0-SNAPSHOT.jar
