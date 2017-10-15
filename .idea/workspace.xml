@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3b2b2298-3a58-46d9-81e4-22acaf6ecf22" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/httptest/html/mutillidae" afterPath="$PROJECT_DIR$/httptest/html/mutillidae" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ServeClient.class" afterPath="$PROJECT_DIR$/target/classes/ServeClient.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -880,12 +879,12 @@
       <updated>1508086722534</updated>
       <workItem from="1508086727793" duration="2948000" />
       <workItem from="1508090780988" duration="8682000" />
-      <workItem from="1508106054412" duration="2877000" />
+      <workItem from="1508106054412" duration="2968000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14507000" />
+    <option name="totallyTimeSpent" value="14598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
