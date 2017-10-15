@@ -2,27 +2,29 @@ FROM ubuntu:16.04
 
 MAINTAINER Chernov Andrey
 
+# Обновление списка пакетов
 RUN apt-get -y update
 
-USER root
-
+# Установка JDK
 RUN apt-get install -y openjdk-8-jdk-headless
 
+# Установка maven
 RUN apt-get install -y maven
 
 #
 # Сборка проекта
 #
 
+# Копируем исходный код в Docker-контейнер
 ENV WORK /opt
-ADD pom.xml $WORK/HighloadMaven/pom.xml
-ADD src/    $WORK/HighloadMaven/src/
-
+ADD . $WORK/java/
 RUN mkdir -p /var/www/html
 
-WORKDIR $WORK/HighloadMaven
+# Собираем и устанавливаем пакет
+WORKDIR $WORK/java
 RUN mvn package
 
+# Объявлем порт сервера
 EXPOSE 80
 
-CMD java -Xmx300M -Xms300M -jar $WORK/HighloadMaven/target/spring-postgresql-1.0-SNAPSHOT.jar
+CMD java -jar $WORK/java/target/Highload-1.0-SNAPSHOT.jar
