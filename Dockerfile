@@ -14,7 +14,7 @@ RUN apt-get install -y maven
 
 ENV WORK /opt
 ADD . $WORK/java/
-RUN mkdir -p /var/ww/html
+RUN mkdir -p /var/www/html
 
 WORKDIR $WORK/java
 RUN mvn package
