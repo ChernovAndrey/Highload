@@ -4,6 +4,8 @@ MAINTAINER Chernov Andrey
 
 RUN apt-get -y update
 
+USER root
+
 RUN apt-get install -y openjdk-8-jdk-headless
 
 RUN apt-get install -y maven
