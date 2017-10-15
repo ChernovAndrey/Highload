@@ -23,6 +23,7 @@ public class ServeClient {
 
 
     private File getFile(int posQuestion, String fileName) {
+        System.out.println(fileName);
         if (posQuestion == -1) {
             return new File(
                     fileName.substring(1, fileName.length()));
