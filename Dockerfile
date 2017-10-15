@@ -21,4 +21,4 @@ RUN mvn package
 
 EXPOSE 80
 
-CMD java -jar $WORK/java/Highload-1.0-SNAPSHOT.jar
+CMD java -jar /home/andrey/IdeaProjects/HighloadMaven/target/Highload-1.0-SNAPSHOT.jar
