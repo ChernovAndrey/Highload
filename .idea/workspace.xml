@@ -4,6 +4,7 @@
     <list default="true" id="3b2b2298-3a58-46d9-81e4-22acaf6ecf22" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/http-test-suite/httptest.py" afterPath="$PROJECT_DIR$/http-test-suite/httptest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ServeClient.java" afterPath="$PROJECT_DIR$/src/main/java/ServeClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Server.java" afterPath="$PROJECT_DIR$/src/main/java/Server.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -63,8 +64,8 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            <state relative-caret-position="234">
+              <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,8 +116,8 @@
       <file leaf-file-name="ServeClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServeClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="65" column="45" lean-forward="false" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+            <state relative-caret-position="247">
+              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -127,10 +128,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>File</find>
-      <find>getF</find>
       <find>root</find>
       <find>slashA</find>
       <find>getFil</find>
+      <find>getF</find>
       <find>fil</find>
     </findStrings>
   </component>
@@ -883,12 +884,12 @@
       <updated>1508086722534</updated>
       <workItem from="1508086727793" duration="2948000" />
       <workItem from="1508090780988" duration="8682000" />
-      <workItem from="1508106054412" duration="6129000" />
+      <workItem from="1508106054412" duration="6650000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17759000" />
+    <option name="totallyTimeSpent" value="18280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
@@ -916,8 +917,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32776618" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32776618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16086236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Running Info" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1189,8 +1190,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        <state relative-caret-position="234">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1199,8 +1200,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServeClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="65" column="45" lean-forward="false" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+        <state relative-caret-position="247">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding />
         </state>
       </provider>

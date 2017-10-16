@@ -26,11 +26,11 @@ public class ServeClient {
         fileName=root+fileName;
         System.out.println(fileName);
         if (posQuestion == -1) {
-            return new File(
-                    fileName.substring(1, fileName.length()));
+            return new File( fileName);
+                   // fileName.substring(1, fileName.length()));
         } else {
-            return new File(
-                    fileName.substring(1, root.length()+posQuestion));
+            return new File( fileName);
+                   // fileName.substring(1, root.length()+posQuestion));
         }
     }
 
