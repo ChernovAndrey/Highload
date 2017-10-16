@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 
 /**
@@ -29,7 +30,7 @@ public class ServeClient {
             return new File( fileName);
                    // fileName.substring(1, fileName.length()));
         } else {
-            return new File( fileName);
+            return new File(fileName);
                    // fileName.substring(1, root.length()+posQuestion));
         }
     }
@@ -68,7 +69,7 @@ public class ServeClient {
         System.out.println(theFile.getCanonicalPath().startsWith(root.substring(1)));
         System.out.println(slashAfterFileName);
         if ((!slashAfterFileName) && (theFile.canRead()) && (theFile.getCanonicalPath().startsWith(root.substring(1)))) {
-            final byte[] theData = Files.readAllBytes(theFile.toPath());
+            final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
             sendHeader(HttpResponseHeader.ok(theData.length, contentType));
             if (method.toUpperCase().equals("GET")) {
                 sendData(theData);
