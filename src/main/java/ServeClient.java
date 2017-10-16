@@ -81,6 +81,7 @@ public class ServeClient {
     private void sendResponse(File theFile, String version, String method, String contentType) throws IOException {
         System.out.println(theFile.exists());
         System.out.println(theFile.canRead());
+        System.out.println("canonPath="+theFile.getCanonicalPath());
         System.out.println(theFile.getCanonicalPath().startsWith(root));
         System.out.println(slashAfterFileName);
         if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getCanonicalPath().startsWith(root))) {

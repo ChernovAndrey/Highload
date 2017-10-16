@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class Server {
 
-    public static final int PORT = 8080;
+    public static final int PORT = 80;
 
 
     public static void main(String[] args) throws IOException {
