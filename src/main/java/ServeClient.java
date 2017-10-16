@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Created by andrey on 15.10.17.
  */
 public class ServeClient {
-    private static final String root = "/home/andrey/IdeaProjects/HighloadMaven";
+    private static final String root = "/var/www/html";
     private static final String indexFileName = "index.html";
 
 
