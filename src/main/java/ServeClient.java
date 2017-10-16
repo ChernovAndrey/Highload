@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Created by andrey on 15.10.17.
  */
 public class ServeClient {
-    private static final String root = "//home/andrey/IdeaProjects/HighloadMaven";
+    private static final String root = "/home/andrey/IdeaProjects/HighloadMaven";
     private static final String indexFileName = "index.html";
 
 
@@ -81,9 +81,9 @@ public class ServeClient {
     private void sendResponse(File theFile, String version, String method, String contentType) throws IOException {
         System.out.println(theFile.exists());
         System.out.println(theFile.canRead());
-        System.out.println(theFile.getCanonicalPath().startsWith(root.substring(1)));
+        System.out.println(theFile.getCanonicalPath().startsWith(root));
         System.out.println(slashAfterFileName);
-        if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getCanonicalPath().startsWith(root.substring(1)))) {
+        if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getCanonicalPath().startsWith(root))) {
             //final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
             //final byte[] theData = readFile(theFile);
             sendHeader(HttpResponseHeader.ok((int) theFile.length(), contentType));

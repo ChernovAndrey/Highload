@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b2b2298-3a58-46d9-81e4-22acaf6ecf22" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/http-test-suite/httptest.py" afterPath="$PROJECT_DIR$/http-test-suite/httptest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ServeClient.class" afterPath="$PROJECT_DIR$/target/classes/ServeClient.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ServeClient.java" afterPath="$PROJECT_DIR$/src/main/java/ServeClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Server.java" afterPath="$PROJECT_DIR$/src/main/java/Server.java" />
     </list>
@@ -44,17 +45,17 @@
       <file leaf-file-name="HttpResponseHeader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/HttpResponseHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
+            <state relative-caret-position="90">
               <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
+            <state relative-caret-position="43">
               <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServeClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServeClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServeClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="76" column="12" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
+            <state relative-caret-position="205">
+              <caret line="85" column="107" lean-forward="false" selection-start-line="85" selection-start-column="107" selection-end-line="85" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -128,7 +129,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>File</find>
-      <find>root</find>
       <find>slashA</find>
       <find>getF</find>
       <find>getFil</find>
@@ -136,8 +136,10 @@
       <find>getFile</find>
       <find>sendRE</find>
       <find>out</find>
-      <find>fil</find>
       <find>ServeC</find>
+      <find>fil</find>
+      <find>root</find>
+      <find>substr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,8 +161,8 @@
         <option value="$PROJECT_DIR$/http-test-suite/httpd.conf" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/src/main/java/ServeClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServeClient.java" />
       </list>
     </option>
   </component>
@@ -329,6 +331,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Highload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HighloadMaven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="httptest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -889,12 +905,12 @@
       <updated>1508086722534</updated>
       <workItem from="1508086727793" duration="2948000" />
       <workItem from="1508090780988" duration="8682000" />
-      <workItem from="1508106054412" duration="10795000" />
+      <workItem from="1508106054412" duration="11774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22425000" />
+    <option name="totallyTimeSpent" value="23404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="52" width="1855" height="1028" extended-state="0" />
@@ -1187,9 +1203,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HttpResponseHeader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
+        <state relative-caret-position="90">
           <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding />
         </state>
@@ -1197,19 +1223,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServeClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="76" column="12" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
+        <state relative-caret-position="205">
+          <caret line="85" column="107" lean-forward="false" selection-start-line="85" selection-start-column="107" selection-end-line="85" selection-end-column="107" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
