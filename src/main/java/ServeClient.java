@@ -62,6 +62,20 @@ public class ServeClient {
         }
     }
 
+    private void sendFile(File theFile){
+        try( final InputStream ios= new FileInputStream(theFile)){
+            final byte[] buffer = new byte[1024];
+
+            int read= 0;
+            while ((read = ios.read(buffer)) != -1) {
+                raw.write(buffer, 0, read);
+                raw.flush();
+            }
+
+        }catch (IOException e){
+            System.out.println("problem with read file");
+        }
+    }
 
     private void sendResponse(File theFile, String version, String method, String contentType) throws IOException {
         System.out.println(theFile.exists());
@@ -69,10 +83,12 @@ public class ServeClient {
         System.out.println(theFile.getCanonicalPath().startsWith(root.substring(1)));
         System.out.println(slashAfterFileName);
         if ((!slashAfterFileName) && (theFile.canRead()) && (theFile.getCanonicalPath().startsWith(root.substring(1)))) {
-            final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
-            sendHeader(HttpResponseHeader.ok(theData.length, contentType));
+            //final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
+            //final byte[] theData = readFile(theFile);
+            sendHeader(HttpResponseHeader.ok((int) theFile.length(), contentType));
             if (method.toUpperCase().equals("GET")) {
-                sendData(theData);
+                sendFile(theFile);
+                //sendData(theData);
             }
 
         } else {
