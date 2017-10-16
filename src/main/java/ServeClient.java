@@ -81,10 +81,10 @@ public class ServeClient {
     private void sendResponse(File theFile, String version, String method, String contentType) throws IOException {
         System.out.println(theFile.exists());
         System.out.println(theFile.canRead());
-        System.out.println("canonPath="+theFile.getCanonicalPath());
+        System.out.println("canonPath="+theFile.getAbsolutePath());
         System.out.println(theFile.getCanonicalPath().startsWith(root));
         System.out.println(slashAfterFileName);
-        if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getCanonicalPath().startsWith(root))) {
+        if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getAbsolutePath().startsWith(root))) {
             //final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
             //final byte[] theData = readFile(theFile);
             sendHeader(HttpResponseHeader.ok((int) theFile.length(), contentType));
