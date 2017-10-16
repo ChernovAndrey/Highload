@@ -62,7 +62,7 @@ public class ServeClient {
         }
     }
 
-    private void sendFile(File theFile){
+    private void sendFile(File theFile) throws IOException {
         try( final InputStream ios= new FileInputStream(theFile)){
             final byte[] buffer = new byte[1024];
 
@@ -73,6 +73,7 @@ public class ServeClient {
             }
 
         }catch (IOException e){
+            sendHeader(HttpResponseHeader.notFound());
             System.out.println("problem with read file");
         }
     }
@@ -82,7 +83,7 @@ public class ServeClient {
         System.out.println(theFile.canRead());
         System.out.println(theFile.getCanonicalPath().startsWith(root.substring(1)));
         System.out.println(slashAfterFileName);
-        if ((!slashAfterFileName) && (theFile.canRead()) && (theFile.getCanonicalPath().startsWith(root.substring(1)))) {
+        if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getCanonicalPath().startsWith(root.substring(1)))) {
             //final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
             //final byte[] theData = readFile(theFile);
             sendHeader(HttpResponseHeader.ok((int) theFile.length(), contentType));
