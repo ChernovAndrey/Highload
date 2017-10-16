@@ -63,6 +63,7 @@ public class ServeClient {
 
 
     private void sendResponse(File theFile, String version, String method, String contentType) throws IOException {
+        System.out.println(theFile.exists());
         System.out.println(theFile.canRead());
         System.out.println(theFile.getCanonicalPath().startsWith(root.substring(1)));
         System.out.println(slashAfterFileName);
