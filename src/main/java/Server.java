@@ -54,19 +54,14 @@ public class Server {
         ServerSocket s = new ServerSocket(PORT);
 
 
-        final ExecutorService threadPool = Executors.newFixedThreadPool(MaxThreads);
+  //      final ExecutorService threadPool = Executors.newFixedThreadPool(MaxThreads);
+       final ThreadPool threadPool= new ThreadPool(MaxThreads);
         ServeClient.initTypeFiles();
-        while(true){
+
+        while(true) {
             Socket socket = s.accept();
-            threadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    ServeClient sc = new ServeClient(socket);
-                    sc.execute();
-                }
-            });
+            ServeClient sc = new ServeClient(socket);
+            threadPool.execute(sc);
         }
-
-
     }
 }

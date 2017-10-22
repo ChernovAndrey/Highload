@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Created by andrey on 15.10.17.
  */
-public class ServeClient{
+public class ServeClient implements Runnable{
     public static  String root = "/home/andrey/IdeaProjects/HighloadMaven";
     private static final String indexFileName = "index.html";
 
@@ -116,10 +116,13 @@ public class ServeClient{
 
     private String readRequest() throws IOException {
         final StringBuilder requestLine = new StringBuilder();
+
         while (true) {
-            int c = in.read();
-            if (c == '\r' || c == '\n') break;
-            requestLine.append((char) c);
+            final String line = in.readLine();
+            if (line == null || line.isEmpty()) {
+                break;
+            }
+            requestLine.append(line);
         }
         return requestLine.toString();
     }
@@ -135,7 +138,8 @@ public class ServeClient{
         }
     }
 
-    public void execute() {
+    @Override
+    public void run() {
 
         try {
             parseRequest();
@@ -153,8 +157,12 @@ public class ServeClient{
     private void finish() {
 
         try{
+//            out.close();
+//            raw.close();
+            in.close();
             socket.close();
         } catch (IOException e) {
+            System.out.println("can not close");
             e.printStackTrace();
         }
         //    try {
