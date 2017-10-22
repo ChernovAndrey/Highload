@@ -8,8 +8,8 @@ import java.util.HashMap;
 /**
  * Created by andrey on 15.10.17.
  */
-public class ServeClient {
-    private static final String root = "/var/www/html";
+public class ServeClient{
+    public static  String root = "/home/andrey/IdeaProjects/HighloadMaven";
     private static final String indexFileName = "index.html";
 
 
@@ -25,12 +25,11 @@ public class ServeClient {
 
     private File getFile(int posQuestion, String fileName) {
         fileName=root+fileName;
-        System.out.println(fileName);
         if (posQuestion == -1) {
             return new File( fileName);
                    // fileName.substring(1, fileName.length()));
         } else {
-            return new File(fileName);
+            return new File(fileName.substring(0,root.length()+posQuestion));
                    // fileName.substring(1, root.length()+posQuestion));
         }
     }
@@ -39,19 +38,29 @@ public class ServeClient {
         final String method = tokens[0];
         if (method.toUpperCase().equals("GET") || (method.toUpperCase().equals("HEAD"))) {
             String fileName = URLDecoder.decode(tokens[1], "UTF-8");
-
             final int posLastDot = fileName.lastIndexOf('.');
-            if (fileName.endsWith("/")) {
-                if (posLastDot != -1) { //соедржит точку
-                    slashAfterFileName = true;
-                } else {
-                    flagIndex = true;
-                    fileName += indexFileName;
+
+            String contentType;
+            if(posLastDot!=-1){
+                try {
+                    contentType = typeFiles.get(fileName.substring(posLastDot + 1));
+                }catch (Exception e){
+                    System.out.println("unnsuport type="+fileName.substring(posLastDot + 1));
+                    sendHeader(HttpResponseHeader.notAllowed());
+                    return;
+                }
+            }else{
+                if(fileName.endsWith("/")){
+                    flagIndex=true;
+                    fileName+=indexFileName;
+                    contentType="html";
+                }else{
+                    sendHeader(HttpResponseHeader.forbidden());
+                    return;
                 }
             }
 
             final String version = tokens[2];
-            final String contentType = typeFiles.get(fileName.substring(posLastDot + 1));
             final int posQuestion = fileName.indexOf('?');
             final File theFile = getFile(posQuestion, fileName);
 
@@ -74,17 +83,11 @@ public class ServeClient {
 
         }catch (IOException e){
             sendHeader(HttpResponseHeader.notFound());
-            System.out.println("problem with read file");
         }
     }
 
     private void sendResponse(File theFile, String version, String method, String contentType) throws IOException {
-        System.out.println(theFile.exists());
-        System.out.println(theFile.canRead());
-        System.out.println("canonPath="+theFile.getAbsolutePath());
-        System.out.println(theFile.getCanonicalPath().startsWith(root));
-        System.out.println(slashAfterFileName);
-        if ((!slashAfterFileName) /*&& (theFile.canRead())*/ && (theFile.getAbsolutePath().startsWith(root))) {
+        if ((!slashAfterFileName) && (theFile.canRead()) && (theFile.getCanonicalPath().startsWith(root))) {
             //final byte[] theData = Files.readAllBytes(Paths.get(theFile.toURI()));
             //final byte[] theData = readFile(theFile);
             sendHeader(HttpResponseHeader.ok((int) theFile.length(), contentType));
@@ -124,8 +127,8 @@ public class ServeClient {
     ServeClient(Socket socket) {
         this.socket = socket;
         try {
-            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.raw = new BufferedOutputStream(socket.getOutputStream());
+            this.in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+            this.raw = new BufferedOutputStream(this.socket.getOutputStream());
             this.out = new OutputStreamWriter(raw);
         } catch (IOException e) {
             System.out.println("problem with in/out");
@@ -133,12 +136,14 @@ public class ServeClient {
     }
 
     public void execute() {
+
         try {
             parseRequest();
             if (tokens.length >= 3) {
                 Response();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("catch in execute");
             e.printStackTrace();
         } finally {
             finish();
@@ -146,14 +151,20 @@ public class ServeClient {
     }
 
     private void finish() {
-        try {
-            in.close();
-            out.close();
-            raw.close();
+
+        try{
             socket.close();
         } catch (IOException e) {
-            System.out.println("Socket can not close;");
+            e.printStackTrace();
         }
+        //    try {
+          //  in.close();
+          //  out.close();
+          //  raw.close();
+          //  socket.close();
+    /*    } catch (IOException e) {
+            System.out.println("Socket can not close;");
+        }*/
     }
 
     public static void initTypeFiles() {
@@ -174,13 +185,21 @@ public class ServeClient {
     }
 
 
-    private void sendHeader(String responseHeader) throws IOException {
-        out.write(responseHeader);
-        out.flush();
+    private void sendHeader(String responseHeader) {
+       try {
+           out.write(responseHeader);
+           out.flush();
+       }catch (Exception e){
+           System.out.println("catch in sendHeader"+ e.getMessage());
+       }
     }
 
-    private void sendData(byte[] theData) throws IOException {
-        raw.write(theData);
-        raw.flush();
+    private void sendData(byte[] theData){
+        try {
+            raw.write(theData);
+            raw.flush();
+        }catch (Exception e){
+            System.out.println("catch in sendData ");
+        }
     }
 }

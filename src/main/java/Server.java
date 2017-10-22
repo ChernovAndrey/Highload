@@ -11,33 +11,62 @@ import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class Server {
 
-    public static final int PORT = 80;
+    private static  String pathToConfig = "/home/andrey/httpd.config";
+    private static  int PORT = 80;
+    private static int MaxThreads=50;
+
+    private static void parseConfig() throws IOException {
+        FileInputStream fstream = new FileInputStream(pathToConfig);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+
+        String strLine;
+
+//Read File Line By Line
+        while ((strLine = br.readLine()) != null) {
+            // Print the content on the console
+            final String[] maps = strLine.split(":");
+            if(maps[0].equals("Listen")){
+                PORT = Integer.parseInt(maps[1]);
+            }
+            if(maps[0].equals("threads_max")){
+                System.out.println(Integer.parseInt(maps[1]));
+               MaxThreads = Integer.parseInt(maps[1]);
+            }
+            if(maps[0].equals("document_root")){
+                ServeClient.root = maps[1];
+            }
+            System.out.println(strLine);
+        }
+        fstream.close();
+        br.close();
+    }
 
 
     public static void main(String[] args) throws IOException {
-        final ExecutorService threadPool = Executors.newFixedThreadPool(100);
+        parseConfig();
+        ServerSocket s = new ServerSocket(PORT);
 
+
+        final ExecutorService threadPool = Executors.newFixedThreadPool(MaxThreads);
         ServeClient.initTypeFiles();
-        final ServerSocket s = new ServerSocket(PORT);
-        System.out.println("Started: " + s);
-        try {
-            // Блокирует до тех пор, пока не возникнет соединение:
-            while (true) {
-                 final Socket socket = s.accept();
-                threadPool.submit(() -> {
-                        new ServeClient(socket).execute();
-                });
-
-            }
-        }finally {
-            s.close();
+        while(true){
+            Socket socket = s.accept();
+            threadPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    ServeClient sc = new ServeClient(socket);
+                    sc.execute();
+                }
+            });
         }
+
 
     }
 }
