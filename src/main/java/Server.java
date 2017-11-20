@@ -20,7 +20,7 @@ public class Server {
 
     private static  String pathToConfig = "/home/andrey/httpd.config";
     private static  int PORT = 80;
-    private static int MaxThreads=50;
+    private static int MaxThreads=5;
 
     private static void parseConfig() throws IOException {
         FileInputStream fstream = new FileInputStream(pathToConfig);
@@ -54,8 +54,8 @@ public class Server {
         ServerSocket s = new ServerSocket(PORT);
 
 
-  //      final ExecutorService threadPool = Executors.newFixedThreadPool(MaxThreads);
-       final ThreadPool threadPool= new ThreadPool(MaxThreads);
+        //final ExecutorService threadPool = Executors.newFixedThreadPool(MaxThreads);
+        final ThreadPool threadPool= new ThreadPool(MaxThreads);
         ServeClient.initTypeFiles();
 
         while(true) {
